@@ -4,11 +4,10 @@ function ObjectCol(props) {
 
 function ObjectRow(props) {
     return <tr>
-        <td>08:00</td>
-        <td>X</td>
-        <td>X</td>
-        <td>X</td>
-        <td>X</td>
+        <td>{props.hora}</td>
+        <td>{props.lunes}</td>
+        <td>{props.martes}</td>
+        <td>{props.miercoles}</td>
         <td>X</td>
         <td>X</td>
         <td>X</td>
@@ -23,8 +22,16 @@ function Grilla() {
         cols.push(<ObjectCol key={i} />);
     }*/
     var rows = [];
-    for (var i = 0; i < 5; i++) {
-        rows.push(<ObjectRow key={i} />);
+    var datos = [
+        {hora:'08:00', 'lunes':'X', 'martes':'', 'miercoles':'X'},
+        {hora:'08:30', 'lunes':'X', 'martes':'X', 'miercoles':'X'},
+        {hora:'09:00', 'lunes':'', 'martes':'', 'miercoles':''},
+        {hora:'09:30', 'lunes':'X', 'martes':'X', 'miercoles':''},
+        {hora:'10:00', 'lunes':'X', 'martes':'', 'miercoles':'X'},
+    ];
+    for (var i = 0; i < datos.length; i++) {
+        var d = datos[i];
+        rows.push(<ObjectRow hora={d.hora} lunes={d.lunes} />);
     }
     return (
         <table id="customers">
