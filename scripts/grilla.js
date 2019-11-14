@@ -1,5 +1,5 @@
 function ObjectCol(props) {
-    return <th></th>
+    return <th>{props.name}</th>;
 }
 
 function ObjectRow(props) {
@@ -8,49 +8,43 @@ function ObjectRow(props) {
         <td>{props.lunes}</td>
         <td>{props.martes}</td>
         <td>{props.miercoles}</td>
-        <td>X</td>
+        <td>{props.jueves}</td>
         <td>X</td>
         <td>X</td>
     </tr>;
 }
 
-function Grilla() {
+function Grilla(props) {
 
-    /*var columnas = ['Horario', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
     var cols = [];
-    for (var i = 0; i < columnas.length; i++) {
-        cols.push(<ObjectCol key={i} />);
-    }*/
-    var rows = [];
-    var datos = [
-        {hora:'08:00', 'lunes':'X', 'martes':'', 'miercoles':'X'},
-        {hora:'08:30', 'lunes':'X', 'martes':'X', 'miercoles':'X'},
-        {hora:'09:00', 'lunes':'', 'martes':'', 'miercoles':''},
-        {hora:'09:30', 'lunes':'X', 'martes':'X', 'miercoles':''},
-        {hora:'10:00', 'lunes':'X', 'martes':'', 'miercoles':'X'},
-    ];
-    for (var i = 0; i < datos.length; i++) {
-        var d = datos[i];
-        rows.push(<ObjectRow hora={d.hora} lunes={d.lunes} />);
+    for (var i = 0; i < props.headers.length; i++) {
+        cols.push(<ObjectCol name={props.headers[i]} />);
+    }
+    var rows = [];    
+    for (var i = 0; i < props.data.length; i++) {
+        var d = props.data[i];
+        rows.push(<ObjectRow hora={d.hora} lunes={d.lunes} martes={d.martes} 
+            miercoles={d.miercoles} jueves={d.jueves}/>);
     }
     return (
-        <table id="customers">
-            <thead>
-                <tr>
-                    <th>Horario</th>
-                    <th>Lunes</th> 
-                    <th>Martes</th>
-                    <th>Miercoles</th>
-                    <th>Jueves</th>
-                    <th>Viernes</th>
-                    <th>Sabado</th>
-                </tr>
-            </thead>
-            <tbody>
-                {rows}
-            </tbody>
+        <table id={props.id}>
+            <thead><tr>{cols}</tr></thead>
+            <tbody>{rows}</tbody>
         </table>
     );
 }
 
-ReactDOM.render(<Grilla />, document.getElementById('root2'));
+var columnas = ['Hora', 'Lunes', 'Martes', 'Miercoles', 'Jueves', 'Viernes', 'Sabado'];
+
+var datos = [
+    {hora:'08:00', 'lunes':'X', 'martes':'X', 'miercoles':'X', 'jueves':''},
+    {hora:'08:30', 'lunes':'X', 'martes':'X', 'miercoles':'X', 'jueves':''},
+    {hora:'09:00', 'lunes':'', 'martes':'X', 'miercoles':'', 'jueves':''},
+    {hora:'09:30', 'lunes':'X', 'martes':'X', 'miercoles':'', 'jueves':''},
+    {hora:'10:00', 'lunes':'X', 'martes':'X', 'miercoles':'X', 'jueves':''},
+];
+
+ReactDOM.render(
+    <Grilla id="customers" data={datos} headers={columnas} />, 
+    document.getElementById('root2')
+);
