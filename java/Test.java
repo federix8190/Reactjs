@@ -24,10 +24,19 @@ public class Test {
 	public static void main(String[] args) throws FileNotFoundException, IOException, ParseException {	
 
 		
-		Date expira = new Date();
+		Date expira = new Date(1563163200000l);
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
 		System.out.println("Actual : " + sdf.format(expira));
-		
+
+		HashMap<String, Object> facturas = new HashMap<String, Object>();
+		Object test = facturas.get("test");
+		System.out.println(test);
+
+		String numeroLinea ="971365910";
+		if (numeroLinea.length() == 10 && numeroLinea.substring(0, 2).equals("09")) {
+			numeroLinea = numeroLinea.substring(1);
+			System.out.println(numeroLinea);
+		}
 	}
 
 	private static boolean isEmpty(String cad) {
