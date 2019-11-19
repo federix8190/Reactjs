@@ -37,6 +37,20 @@ public class Test {
 			numeroLinea = numeroLinea.substring(1);
 			System.out.println(numeroLinea);
 		}
+
+		//char registered = '®';
+		int[][] A = {
+			{1, -1 , -1, 1},
+			{2 , -3 , -5, 4},
+			{-2, -1, -2, 2},
+			{3, -3, -1, 2}
+		};
+		String password = "NCS-2014";
+		for (int i = 0; i < password.length(); i++) {
+			int code = (int) password.charAt(i);
+			System.out.println(code);
+		}
+		
 	}
 
 	private static boolean isEmpty(String cad) {
