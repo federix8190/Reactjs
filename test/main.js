@@ -11,6 +11,13 @@ var decodingMatrix = [
 	[ 31,  -6,  2,  -5]
 ];
 
+function printMatrix(matrix) {
+	console.log('Matriz');
+	for (x in matrix) {
+		console.log(matrix[x]);
+	}
+}
+
 function getMatrixFromArray(arr, rows) {
 	var matrix = new Array();
 	for (var i=0; i<rows; i++)
@@ -102,18 +109,19 @@ cipherText = numberToChar(cipherText);
 document.getElementById("cypherText").value = cipherText;
 }
 
-function decryptText(){
-var cipherText = document.getElementById("cypherText").value;
-//if (document.getElementById("mapNumbers").checked)
-var cipherText = charToNumber(cipherText);
-var cipherMatrix = getMatrixFromNumbers(cipherText, 4);
-var plainMatrix = multiplyMatrices(decodingMatrix,cipherMatrix)
-document.getElementById("decryptedText").value = getTextFromMatrix(plainMatrix);
+function decryptText() {
+	printMatrix(encodingMatrix);
+	var cipherText = document.getElementById("cypherText").value;
+	//if (document.getElementById("mapNumbers").checked)
+	var cipherText = charToNumber(cipherText);
+	var cipherMatrix = getMatrixFromNumbers(cipherText, 4);
+	var plainMatrix = multiplyMatrices(decodingMatrix,cipherMatrix)
+	document.getElementById("decryptedText").value = getTextFromMatrix(plainMatrix);
 }
 
 window.onload = function(){
-document.getElementById("encrypt").onclick = encryptText;
-document.getElementById("decrypt").onclick = decryptText;
+	document.getElementById("encrypt").onclick = encryptText;
+	document.getElementById("decrypt").onclick = decryptText;
 };
 
 
