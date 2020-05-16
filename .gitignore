@@ -1,4 +1,5 @@
 /dist
 /node_modules
+/services/venv
 *.class
 *.out
