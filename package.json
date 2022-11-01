@@ -4,7 +4,7 @@
   "author": "Federico Torres <federico.torres@konecta.com.py>",
   "private": true,
   "devDependencies": {
-    "grunt": "~0.4.*",
+    "grunt": "~1.5.*",
     "grunt-banner": "^0.6.0",
     "grunt-connect-proxy": "^0.2.0",
     "grunt-contrib-concat": "~0.5.0",
@@ -12,7 +12,7 @@
     "grunt-contrib-copy": "~0.7.0",
     "grunt-contrib-cssmin": "~0.12.1",
     "grunt-contrib-uglify": "^0.6.0",
-    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-watch": "^1.1.0",
     "grunt-css-include-combine": "0.0.1",
     "grunt-open": "^0.2.3",
     "grunt-remove": "~0.1.0",
