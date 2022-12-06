@@ -12,7 +12,7 @@
     "grunt-contrib-copy": "~0.7.0",
     "grunt-contrib-cssmin": "~0.12.1",
     "grunt-contrib-uglify": "^0.6.0",
-    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-watch": "^1.1.0",
     "grunt-css-include-combine": "0.0.1",
     "grunt-open": "^0.2.3",
     "grunt-remove": "~0.1.0",
